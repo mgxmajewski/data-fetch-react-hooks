@@ -21,19 +21,23 @@ function App() {
 
     const performSearch = (value) => setQuery(value)
 
-  return (
-    <>
-      <div className="main-header">
-        <div className="inner">
-          <h1 className="main-title">GifSearch</h1>
-          <SearchForm onSearch={performSearch}/>
-        </div>
-      </div>
-      <div className="main-content">
-          <GifList data={data}/>
-      </div>
-    </>
-  );
+    return (
+        <>
+            <div className="main-header">
+                <div className="inner">
+                    <h1 className="main-title">GifSearch</h1>
+                    <SearchForm onSearch={performSearch}/>
+                </div>
+            </div>
+            <div className="main-content">
+                {
+                    isLoading
+                        ? <p>Loading....</p>
+                        : <GifList data={data}/>
+                }
+            </div>
+        </>
+    );
 }
 
 export default App
